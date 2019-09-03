@@ -86,7 +86,7 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
 
       let(:product) do
         product = OpenStruct.new
-        product.name = 'Citroen C4 GFH3652'
+        product.name = 'Citroën C4 GFH3652'
 
         product
       end

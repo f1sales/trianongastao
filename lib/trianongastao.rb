@@ -18,7 +18,7 @@ module Trianongastao
           if lead.product.name.downcase.include?('peugeot')
             lead.source.name + source[:webmotors_peugeot]
 
-          elsif lead.product.name.downcase.include?('citroen')
+          elsif lead.product.name.downcase.include?('citroën')
             lead.source.name + source[:webmotors_citroen]
           else
             lead.source.name
