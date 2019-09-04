@@ -22,7 +22,7 @@ GIT
 PATH
   remote: .
   specs:
-    trianongastao (0.1.1)
+    trianongastao (0.1.2)
 
 GEM
   remote: https://rubygems.org/
