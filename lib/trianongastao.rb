@@ -62,6 +62,7 @@ module Trianongastao
 
       if destinatary.include?('websitegastao')
         source = all_sources[1] if (parsed_email['link_da_land'] || parsed_email['origem'] || parsed_email['site']).downcase.include?('peugeot')
+        source = all_sources[1] if (parsed_email['site'] || '').downcase.include?('peugeot')
       else
         source = nil
       end

@@ -8,6 +8,24 @@ RSpec.describe F1SalesCustom::Email::Parser do
 
     context 'when is about a peugeout'  do
 
+      context 'when it conatians site' do
+        let(:email) do
+          email = OpenStruct.new
+          email.to = [email: 'websitegastao@sampatrianon.f1sales.net']
+          email.subject = 'Solicitação de cotação por marcioklepacz@gmail.com em /seminovos/carros/peugeot-207/1265588'
+          email.body = "Site: https://toribapeugeot.com.br/Nome: Marcio KlepaczE-mail: marcioklepacz@gmail.comTelefone: (11) 98158-7311Mensagem: Lead teste entrar em contato e descartar"
+
+          email
+        end
+
+        let(:parsed_email) { described_class.new(email).parse }
+
+        it 'contains website novos as source name' do
+          expect(parsed_email[:source][:name]).to eq(F1SalesCustom::Email::Source.all[1][:name])
+        end
+
+      end
+
       context 'when it does not gave line breaks' do
 
         let(:email) do
