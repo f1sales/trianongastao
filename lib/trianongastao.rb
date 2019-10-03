@@ -52,6 +52,10 @@ module Trianongastao
           email_id: 'websitegastao',
           name: 'Website - Gastão - PCD'
         },
+        {
+          email_id: 'websitegastao',
+          name: 'Website - Gastão - Utilitários'
+        },
       ]
     end
   end
@@ -68,6 +72,7 @@ module Trianongastao
         source = all_sources[1] if (parsed_email['link_da_land'] || parsed_email['origem'] || parsed_email['site']).downcase.include?('peugeot')
         source = all_sources[1] if (parsed_email['site'] || '').downcase.include?('peugeot')
         source = all_sources[2] if @email.subject.downcase.include?('pcd')
+        source = all_sources[3] if (parsed_email['link_da_land'] || parsed_email['origem'] || '').downcase.include?('utilitarios')
       else
         source = nil
       end

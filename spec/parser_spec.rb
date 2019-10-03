@@ -56,6 +56,23 @@ RSpec.describe F1SalesCustom::Email::Parser do
         end
       end
 
+      context 'when is about SUV' do
+        let(:email) do
+          email = OpenStruct.new
+          email.to = [email: 'websitegastao@lojateste.f1sales.org']
+          email.subject = 'Campanha - C4 CACTUS'
+          email.body = "Contato via site\n\n*Nome:*\n\nJoao\n\n*E-mail:*\n\njoao.marcos@criah.com.br\n\n*Telefone:*\n\n(11) 1 1111-1111\n\n*Loja:*\n\nGastão Vidigal\n\n*Mensagem:*\n\nTeste\n\n-----------------------------------------------------------------------\n\n*Link da Land:*\n\npromocao.peugeottrianon.com.br/utilitarios/\n\n\n\n\n\n*Mensagem de e-mail confidencial.*"
+
+          email
+        end
+
+        let(:parsed_email) { described_class.new(email).parse }
+
+        it 'contains website suv as source name' do
+          expect(parsed_email[:source][:name]).to eq(F1SalesCustom::Email::Source.all[3][:name])
+        end 
+      end
+
       context 'when is about PCD' do
         let(:email) do
           email = OpenStruct.new
@@ -71,7 +88,6 @@ RSpec.describe F1SalesCustom::Email::Parser do
         it 'contains website pcd as source name' do
           expect(parsed_email[:source][:name]).to eq(F1SalesCustom::Email::Source.all[2][:name])
         end 
-
       end
 
       context 'when it has line breaks' do
