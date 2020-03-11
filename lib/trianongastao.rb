@@ -13,7 +13,7 @@ module Trianongastao
 
       def switch_source(lead)
 
-        if lead.source.name.downcase.include?('webmotors')
+        if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
 
           if lead.product.name.downcase.include?('peugeot')
             lead.source.name + source[:webmotors_peugeot]
