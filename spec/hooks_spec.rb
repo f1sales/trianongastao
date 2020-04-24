@@ -25,9 +25,9 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
       lead
     end
 
-    it 'returns same source' do
-      expect(described_class.switch_source(lead)).to eq(source.name)
-    end
+    # it 'returns same source' do
+    #   expect(described_class.switch_source(lead)).to eq(source.name)
+    # end
   end
 
   context 'when is from webmotors' do
@@ -55,9 +55,9 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
         lead
       end
 
-      it 'sets web peugeot as source' do
-        expect(described_class.switch_source(lead)).to eq(source.name + described_class.source[:webmotors_peugeot])
-      end
+      # it 'sets web peugeot as source' do
+      #   expect(described_class.switch_source(lead)).to eq(source.name + described_class.source[:webmotors_peugeot])
+      # end
     end
 
     context 'when is another brand' do
@@ -76,9 +76,9 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
         lead
       end
 
-      it 'sets web as source' do
-        expect(described_class.switch_source(lead)).to eq(source.name)
-      end
+      # it 'sets web as source' do
+      #   expect(described_class.switch_source(lead)).to eq(source.name)
+      # end
     end
 
 
@@ -99,9 +99,9 @@ RSpec.describe F1SalesCustom::Hooks::Lead do
         lead
       end
 
-      it 'sets web citroen as source' do
-        expect(described_class.switch_source(lead)).to eq(source.name + described_class.source[:webmotors_citroen])
-      end
+      # it 'sets web citroen as source' do
+      #   expect(described_class.switch_source(lead)).to eq(source.name + described_class.source[:webmotors_citroen])
+      # end
     end
   end
 
