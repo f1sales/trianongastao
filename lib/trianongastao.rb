@@ -30,14 +30,14 @@ module Trianongastao
                 name: lead.product.name
               },
               source: {
-                name: lead.source.name
+                name: "#{lead.source.name} - Gastão"
               }
             }
           },
         )
 
         return nil
-        
+
 
         # Temporary killing the code below
         if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
@@ -64,7 +64,7 @@ module Trianongastao
     end
   end
 
-  class F1SalesCustom::Email::Source 
+  class F1SalesCustom::Email::Source
     def self.all
       [
         {
@@ -92,8 +92,8 @@ module Trianongastao
       parsed_email = @email.body.colons_to_hash(/(Telefone|Origem|Nome|E-mail|Site|Mensagem|Link da Land).*?:/, false)
 
       all_sources = F1SalesCustom::Email::Source.all
-      destinatary = @email.to.map { |email| email[:email].split('@').first } 
-      source = all_sources[0] 
+      destinatary = @email.to.map { |email| email[:email].split('@').first }
+      source = all_sources[0]
 
       if destinatary.include?('websitegastao')
         source = all_sources[1] if (parsed_email['link_da_land'] || parsed_email['origem'] || parsed_email['site']).downcase.include?('peugeot')
