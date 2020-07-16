@@ -30,7 +30,7 @@ module Trianongastao
                 name: lead.product.name
               },
               source: {
-                name: "#{lead.source.name} - Gastão"
+                name: lead.source.name
               }
             }
           },
