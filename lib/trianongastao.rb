@@ -36,8 +36,7 @@ module Trianongastao
           },
         )
 
-        return nil
-
+        return source.name
 
         # Temporary killing the code below
         if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
