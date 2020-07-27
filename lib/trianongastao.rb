@@ -39,19 +39,19 @@ module Trianongastao
         return source.name
 
         # Temporary killing the code below
-        if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
-
-          if lead.product.name.downcase.include?('peugeot')
-            lead.source.name + source[:webmotors_peugeot]
-
-          elsif lead.product.name.downcase.include?('citroën')
-            lead.source.name + source[:webmotors_citroen]
-          else
-            lead.source.name
-          end
-        else
-          lead.source.name
-        end
+        # if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
+        #
+        #   if lead.product.name.downcase.include?('peugeot')
+        #     lead.source.name + source[:webmotors_peugeot]
+        #
+        #   elsif lead.product.name.downcase.include?('citroën')
+        #     lead.source.name + source[:webmotors_citroen]
+        #   else
+        #     lead.source.name
+        #   end
+        # else
+        #   lead.source.name
+        # end
       end
 
       def source
