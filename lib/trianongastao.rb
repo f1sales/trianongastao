@@ -9,59 +9,59 @@ require "http"
 
 module Trianongastao
   class Error < StandardError; end
-  class F1SalesCustom::Hooks::Lead
-
-    class << self
-
-      def switch_source(lead)
-        customer = lead.customer
-
-        HTTP.post(
-          'https://sampatrianon.f1sales.org/integrations/leads',
-          json: {
-            lead: {
-              message: lead.message,
-              customer: {
-                name: customer.name,
-                email: customer.email,
-                phone: customer.phone,
-              },
-              product: {
-                name: lead.product.name
-              },
-              source: {
-                name: lead.source.name
-              }
-            }
-          },
-        )
-
-        return source.name
-
-        # Temporary killing the code below
-        # if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
-        #
-        #   if lead.product.name.downcase.include?('peugeot')
-        #     lead.source.name + source[:webmotors_peugeot]
-        #
-        #   elsif lead.product.name.downcase.include?('citroën')
-        #     lead.source.name + source[:webmotors_citroen]
-        #   else
-        #     lead.source.name
-        #   end
-        # else
-        #   lead.source.name
-        # end
-      end
-
-      def source
-        {
-          webmotors_peugeot: ' - Peugeot',
-          webmotors_citroen: ' - Citroen'
-        }
-      end
-    end
-  end
+  # class F1SalesCustom::Hooks::Lead
+  #
+  #   class << self
+  #
+  #     def switch_source(lead)
+  #       customer = lead.customer
+  #
+  #       HTTP.post(
+  #         'https://sampatrianon.f1sales.org/integrations/leads',
+  #         json: {
+  #           lead: {
+  #             message: lead.message,
+  #             customer: {
+  #               name: customer.name,
+  #               email: customer.email,
+  #               phone: customer.phone,
+  #             },
+  #             product: {
+  #               name: lead.product.name
+  #             },
+  #             source: {
+  #               name: lead.source.name
+  #             }
+  #           }
+  #         },
+  #       )
+  #
+  #       return source.name
+  #
+  #       # Temporary killing the code below
+  #       # if lead.source.name.downcase.include?('webmotors') && !lead.source.name.downcase.include?('pendentes')
+  #       #
+  #       #   if lead.product.name.downcase.include?('peugeot')
+  #       #     lead.source.name + source[:webmotors_peugeot]
+  #       #
+  #       #   elsif lead.product.name.downcase.include?('citroën')
+  #       #     lead.source.name + source[:webmotors_citroen]
+  #       #   else
+  #       #     lead.source.name
+  #       #   end
+  #       # else
+  #       #   lead.source.name
+  #       # end
+  #     end
+  #
+  #     def source
+  #       {
+  #         webmotors_peugeot: ' - Peugeot',
+  #         webmotors_citroen: ' - Citroen'
+  #       }
+  #     end
+  #   end
+  # end
 
   class F1SalesCustom::Email::Source
     def self.all
