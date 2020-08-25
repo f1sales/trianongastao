@@ -14,8 +14,8 @@ module Trianongastao
     class << self
 
       def switch_source(lead)
-        puts lead
         customer = lead.customer
+        source = lead.source
 
         HTTP.post(
           'https://sampatrianon.f1sales.org/integrations/leads',
