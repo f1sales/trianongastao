@@ -47,7 +47,7 @@ GEM
     http-parser (1.2.1)
       ffi-compiler (>= 1.0, < 2.0)
     public_suffix (4.0.4)
-    rake (10.5.0)
+    rake (13.0.1)
     rspec (3.8.0)
       rspec-core (~> 3.8.0)
       rspec-expectations (~> 3.8.0)
@@ -74,7 +74,7 @@ DEPENDENCIES
   f1sales_custom-hooks!
   f1sales_helpers!
   http
-  rake (~> 10.0)
+  rake (~> 13.0)
   rspec (~> 3.0)
   trianongastao!
 
